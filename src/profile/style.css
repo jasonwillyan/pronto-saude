@@ -1,9 +1,19 @@
-html, body {
+:root {
+  /* --color-primary: #4d4d4d; */
+  --color-primary: #dbdbdb;
+  --color-black: #000;
+  --color-title: #333;
+}
+
+body {
   overflow: hidden;
   height: 100vh;
   width: 100vw;
-  background-color: #dbdbdb;
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-primary);
+  font-family: "Fira sans", sans-serif;
+  color: var(--color-text);
 }
 
 #header {
@@ -17,9 +27,160 @@ html, body {
 }
 
 #header h1 {
-  margin-left: 10%;
+  margin-left: 15%;
   font-size: 32px;
-  font-family: "Fira sans", sans-serif;
   font-weight: 600;
-  color: #333;
+  color: var(--color-title);
+}
+
+#exit:hover {
+  cursor: pointer;
+}
+
+button {
+  margin-left: 1%;
+  appearance: none;
+  border: none;
+  background-color: transparent;
+  font-size: 25px;
+  color: var(--color-black);
+}
+
+input[type="checkbox"] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+  margin-left: 45%;
+}
+
+label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 50px;
+  height: 25px;
+  background: grey;
+  display: block;
+  border-radius: 25px;
+  position: relative;
+}
+
+label::after {
+  content: '';
+  position: absolute;
+  top: 1.25px;
+  left: 1.25px;
+  width: 22.5px;
+  height: 22.5px;
+  background: #fff;
+  border-radius: 22.5px;
+  transition: 0.3s;
+}
+
+input:checked + label {
+  background: #bada55;
+}
+
+label:active::after {
+  width: 32.5px;
+}
+
+input:checked + label::after {
+  left: calc(100% - 1.25px);
+  transform: translateX(-100%);
+}
+
+.container-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.left-column,
+.right-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 33%;
+}
+
+.left-container,
+.right-container {
+  background-color: #000;
+  border-radius: 10px;
+  margin-bottom: 5%;
+}
+
+/* Estilos adicionais para visualização */
+.left-container {
+  background-color: white;
+  width: 40vw;
+  height: 30vh;
+  display: flex;
+}
+
+.right-container {
+  background-color: white;
+  width: 20vw;
+  height: 30vh;
+}
+
+#info {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.nested-container {
+  background-color: transparent;
+  width: 50%;
+  height: 70%;
+  border-radius: 10px;
+}
+
+.nested-container i {
+  margin-right: 5%;
+}
+
+.nested-container h4 {
+  font-weight: bold;
+  margin-left: 8%;
+}
+
+#info h6 {
+  margin-top: 27%;
+  margin-left: 2%;
+  position: absolute;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.allergies-list {
+  list-style-type: none;
+  margin-left: -8%;
+  margin-top: -2%;
+}
+
+.allergies-list li {
+  margin-bottom: 2%;
+}
+
+.severity-box {
+  display: inline-block;
+  width: 1vw;
+  height: 1.4vh;
+  margin-right: 5px;
+  border-radius: 3px;
+}
+
+.severity-low {
+  background-color: #F2C94C;
+}
+
+.severity-medium {
+  background-color: #F2994A;
+}
+
+.severity-high {
+  background-color: #EB5757;
 }
