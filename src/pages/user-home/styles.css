@@ -65,7 +65,7 @@ label {
 }
 
 label::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 1.25px;
   left: 1.25px;
@@ -174,13 +174,13 @@ input:checked + label::after {
 }
 
 .severity-low {
-  background-color: #F2C94C;
+  background-color: #f2c94c;
 }
 
 .severity-medium {
-  background-color: #F2994A;
+  background-color: #f2994a;
 }
 
 .severity-high {
-  background-color: #EB5757;
+  background-color: #eb5757;
 }

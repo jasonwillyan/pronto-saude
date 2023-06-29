@@ -2,7 +2,8 @@
   --primary-color: #486d67;
 }
 
-html, body {
+html,
+body {
   overflow: hidden;
   height: 100vh;
   width: 100vw;
@@ -122,8 +123,7 @@ html, body {
 }
 
 #image-logo {
-  background-image: url("../../img/ps.png");
-  background-size: cover;
+  object-fit: cover;
   margin-top: -26%;
   margin-left: 1%;
   width: 90px;
@@ -159,7 +159,7 @@ html, body {
   background-repeat: no-repeat;
   background-position: left bottom;
   background-size: cover;
-  background-image: url("../../img/img-01.jpg");
+  background-image: url("../../assets/img-01.jpg");
 }
 
 .form-structor .signup {
@@ -320,4 +320,3 @@ html, body {
   cursor: pointer;
   transition: all 0.3s ease;
 }
-
