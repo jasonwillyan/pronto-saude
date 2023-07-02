@@ -5,7 +5,7 @@
   --color-title: #333;
 }
 
-body {
+/* body {
   overflow: hidden;
   height: 100vh;
   width: 100vw;
@@ -14,7 +14,7 @@ body {
   background-color: var(--color-primary);
   font-family: "Fira sans", sans-serif;
   color: var(--color-text);
-}
+} */
 
 #header {
   height: 6vh;

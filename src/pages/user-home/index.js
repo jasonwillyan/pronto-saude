@@ -1,11 +1,16 @@
+import { useContext } from "react";
 import { MdLogout } from "react-icons/md";
 
-import "./styles.css";
+import { ThemeContext } from "../../contexts/ThemeContext";
+import useStyles from "./styles";
 
 export default function UserHome() {
+  const { theme } = useContext(ThemeContext);
+  const classes = useStyles({ theme });
+
   return (
     <>
-      <div id="header">
+      <div className={classes.header}>
         <h1>ProntoSaúde</h1>
         <input type="checkbox" id="switch" />
         <label for="switch">Toggle</label>

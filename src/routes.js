@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes as RoutesList } from "react-router-dom";
-import Login from "./pages/login/Login";
-import UserHome from "./pages/user-home/UserHome";
+import Login from "./pages/login";
+import UserHome from "./pages/user-home";
 
 export default function Routes() {
   return (
