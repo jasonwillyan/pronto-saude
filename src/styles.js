@@ -1,12 +1,9 @@
 import { createUseStyles } from "react-jss";
+import enumTheme from "./utils/theme/enumTheme";
 
-const useStyles = createUseStyles({
+const useGlobalStyles = createUseStyles({
   body: {
-    margin: 0,
-    padding: 0,
-    outline: "none",
-    boxSizing: "border-box",
-    backgroundColor: ({ theme }) => theme.background,
+    backgroundColor: ({ theme }) => theme.palette.background,
     fontFamily: "'Fira Sans', sans-serif",
     width: "100vw",
     minHeight: "100vh",
@@ -15,9 +12,24 @@ const useStyles = createUseStyles({
     left: 0,
     display: "flex",
     flexDirection: "column",
-    justifyContent: "center",
     alignItems: "center"
+  },
+  primaryButton: {
+    borderRadius: 15,
+    padding: "8px 16px",
+    maxWidth: 250,
+    width: "100%",
+    color: ({ theme }) => theme.palette.white,
+    backgroundColor: ({ theme }) => theme.palette.primaryColor,
+    fontFamily: "'Fira Sans', sans-serif",
+    textTransform: "capitalize",
+    marginTop: 8,
+    "&:hover": {
+      backgroundColor: ({ theme }) => theme.palette.primaryColor,
+      filter: ({ theme }) => (theme.name === enumTheme.light ? "brightness(0.8)" : ""),
+      transition: "all 0.3s ease"
+    }
   }
 });
 
-export default useStyles;
+export default useGlobalStyles;

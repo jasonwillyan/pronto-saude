@@ -1,12 +1,13 @@
 import { useContext } from "react";
 import Routes from "./routes";
 
-import useStyles from "./styles";
+import "./global.css";
+import useGlobalStyles from "./styles";
 import { ThemeContext } from "./contexts/ThemeContext";
 
 function App() {
   const { theme } = useContext(ThemeContext);
-  const classes = useStyles({ theme });
+  const classes = useGlobalStyles({ theme });
 
   return (
     <div className={classes.body}>

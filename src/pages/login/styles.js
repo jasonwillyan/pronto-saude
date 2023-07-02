@@ -1,6 +1,7 @@
 import { createUseStyles } from "react-jss";
 
 import background from "../../assets/img-01.jpg";
+import enumTheme from "../../utils/theme/enumTheme";
 
 const formHolder = {
   borderRadius: 15,
@@ -25,7 +26,7 @@ const input = {
     borderBottom: 0
   },
   "&::placeholder": {
-    color: ({ theme }) => theme.placeholder
+    color: ({ theme }) => theme.palette.placeholder
   }
 };
 const submitBtn = {
@@ -63,7 +64,7 @@ const useStyles = createUseStyles({
     width: 350,
     height: 100,
     zIndex: 2,
-    color: ({ theme }) => theme.secondaryColor,
+    color: ({ theme }) => theme.palette.secondaryColor,
     lineHeight: 0.4
   },
   nameApp: {
@@ -91,7 +92,7 @@ const useStyles = createUseStyles({
     height: 90
   },
   formStructor: {
-    backgroundColor: ({ theme }) => theme.text,
+    backgroundColor: ({ theme }) => theme.palette.text,
     borderRadius: 15,
     height: 550,
     width: 350,
@@ -101,14 +102,14 @@ const useStyles = createUseStyles({
     zIndex: 1,
     "&::after": {
       content: "''",
-      opacity: ({ theme }) => (theme.name === "light" ? 0.8 : 1),
+      opacity: ({ theme }) => (theme.name === enumTheme.light ? 0.8 : 1),
       position: "absolute",
       inset: 0,
       backgroundRepeat: "no-repeat",
       backgroundPosition: "left bottom",
       backgroundSize: "cover",
-      backgroundImage: ({ theme }) => (theme.name === "light" ? `url(${background})` : ""),
-      backgroundColor: ({ theme }) => theme.background
+      backgroundImage: ({ theme }) => (theme.name === enumTheme.light ? `url(${background})` : ""),
+      backgroundColor: ({ theme }) => theme.palette.background
     }
   },
   login: {
@@ -120,24 +121,24 @@ const useStyles = createUseStyles({
     zIndex: 5,
     transition: "all 0.3s ease",
     "& .form-title": {
-      color: ({ theme }) => theme.textWhite,
+      color: ({ theme }) => theme.palette.textWhite,
       fontSize: "1.7em",
       textAlign: "center"
     },
     "& .form-holder": {
       ...formHolder,
-      backgroundColor: ({ theme }) => theme.white,
-      borderColor: ({ theme }) => theme.placeholder,
+      backgroundColor: ({ theme }) => theme.palette.white,
+      borderColor: ({ theme }) => theme.palette.placeholder,
       "& .input": {
         ...input,
-        backgroundColor: ({ theme }) => theme.white,
-        borderColor: ({ theme }) => theme.placeholder
+        backgroundColor: ({ theme }) => theme.palette.white,
+        borderColor: ({ theme }) => theme.palette.placeholder
       }
     },
     "& .submit-btn": {
       ...submitBtn,
-      color: ({ theme }) => theme.white,
-      backgroundColor: ({ theme }) => theme.secondaryColor
+      color: ({ theme }) => theme.palette.white,
+      backgroundColor: ({ theme }) => theme.palette.secondaryColor
     },
     "&.slide-up": {
       top: "5%",
@@ -156,7 +157,7 @@ const useStyles = createUseStyles({
   signUp: {
     position: "absolute",
     inset: "20% 0 0",
-    backgroundColor: ({ theme }) => theme.white,
+    backgroundColor: ({ theme }) => theme.palette.white,
     zIndex: 5,
     transition: "all 0.3s ease",
     "&::before": {
@@ -165,7 +166,7 @@ const useStyles = createUseStyles({
       left: "50%",
       top: -20,
       transform: "translate(-50%, 0%)",
-      backgroundColor: ({ theme }) => theme.white,
+      backgroundColor: ({ theme }) => theme.palette.white,
       width: "200%",
       height: 250,
       borderRadius: "50%",
@@ -175,23 +176,23 @@ const useStyles = createUseStyles({
     "& .center": {
       ...center,
       "& .form-title": {
-        color: ({ theme }) => theme.text,
+        color: ({ theme }) => theme.palette.text,
         textAlign: "center"
       },
       "& .form-holder": {
         ...formHolder,
-        backgroundColor: ({ theme }) => theme.white,
-        borderColor: ({ theme }) => theme.placeholder,
+        backgroundColor: ({ theme }) => theme.palette.white,
+        borderColor: ({ theme }) => theme.palette.placeholder,
         "& .input": {
           ...input,
-          backgroundColor: ({ theme }) => theme.white,
-          borderColor: ({ theme }) => theme.placeholder
+          backgroundColor: ({ theme }) => theme.palette.white,
+          borderColor: ({ theme }) => theme.palette.placeholder
         }
       },
       "& .submit-btn": {
         ...submitBtn,
-        color: ({ theme }) => theme.white,
-        backgroundColor: ({ theme }) => theme.secondaryColor
+        color: ({ theme }) => theme.palette.white,
+        backgroundColor: ({ theme }) => theme.palette.secondaryColor
       }
     },
     "&.slide-up": {

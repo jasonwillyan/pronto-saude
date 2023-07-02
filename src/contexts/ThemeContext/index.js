@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from "react";
 
 import light from "../../utils/theme/light";
 import highContrast from "../../utils/theme/highContrast";
+import enumTheme from "../../utils/theme/enumTheme";
 
 export const ThemeContext = createContext({});
 
@@ -10,18 +11,18 @@ export function ThemeProvider({ children }) {
 
   useEffect(() => {
     const themeActive = localStorage.getItem("theme");
-    if (themeActive && themeActive === "highContrast") setTheme(highContrast);
-    else localStorage.setItem("theme", "light");
+    if (themeActive && themeActive === enumTheme.highContrast) setTheme(highContrast);
+    else localStorage.setItem("theme", enumTheme.light);
   }, []);
 
   function switchTheme() {
     const themeActive = localStorage.getItem("theme");
-    if (themeActive === "highContrast") {
+    if (themeActive === enumTheme.highContrast) {
       setTheme(light);
-      localStorage.setItem("theme", "light");
-    } else if (theme === "light") {
+      localStorage.setItem("theme", enumTheme.light);
+    } else if (themeActive === enumTheme.light) {
       setTheme(highContrast);
-      localStorage.setItem("theme", "highContrast");
+      localStorage.setItem("theme", enumTheme.highContrast);
     }
   }
 
