@@ -15,18 +15,35 @@ const useGlobalStyles = createUseStyles({
   },
   primaryButton: {
     borderRadius: 15,
-    padding: "8px 16px",
+    padding: "10px 16px",
     maxWidth: 250,
     width: "100%",
     color: ({ theme }) => theme.palette.white,
     backgroundColor: ({ theme }) => theme.palette.primaryColor,
-    textTransform: "capitalize",
-    marginTop: 8,
+    textTransform: "initial",
+    textAlign: "center",
+    textDecoration: "none",
+    fontWeight: 500,
+    fontSize: 16,
+    marginTop: 16,
     "&:hover": {
       backgroundColor: ({ theme }) => theme.palette.primaryColor,
       filter: ({ theme }) => (theme.name === enumTheme.light ? "brightness(0.8)" : ""),
       transition: "all 0.3s ease"
     }
+  },
+  primaryOutlineButton: {
+    borderRadius: 15,
+    border: ({ theme }) => `2px solid ${theme.palette.primaryColor}`,
+    padding: "8px 32px",
+    color: ({ theme }) => theme.palette.primaryColor,
+    backgroundColor: ({ theme }) => theme.palette.white,
+    textTransform: "initial",
+    textAlign: "center",
+    textDecoration: "none",
+    fontWeight: 500,
+    fontSize: 16,
+    marginTop: 16
   }
 });
 

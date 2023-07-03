@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import {
-  Button,
   Grid,
   InputAdornment,
   Table,
@@ -13,6 +12,7 @@ import {
 import classNames from "classnames";
 import { MdAccountCircle, MdBloodtype, MdCalendarToday, MdOutlineSearch } from "react-icons/md";
 
+import { Link } from "react-router-dom";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import useStyles from "./styles";
 import Header from "../../components/Header";
@@ -271,8 +271,12 @@ export default function UserHome() {
                   <span>O+</span>
                 </div>
               </div>
-              <Button className={globalClasses.primaryButton}>Editar perfil</Button>
-              <Button className={globalClasses.primaryButton}>Cadastrar procedimento</Button>
+              <Link to="/profile" className={globalClasses.primaryButton}>
+                Editar perfil
+              </Link>
+              <Link to="" className={globalClasses.primaryButton}>
+                Cadastrar procedimento
+              </Link>
             </Grid>
           </Grid>
         </Grid>
