@@ -58,6 +58,13 @@ const center = {
 };
 
 const useStyles = createUseStyles({
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    minHeight: "100vh"
+  },
   logo: {
     backgroundSize: "cover",
     position: "relative",

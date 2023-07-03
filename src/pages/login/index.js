@@ -32,7 +32,7 @@ export default function Login() {
   };
 
   return (
-    <div>
+    <div className={classes.container}>
       <div className={classes.logo}>
         <div className={classes.nameApp}>
           <span>Pronto Saúde</span>
