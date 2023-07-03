@@ -3,12 +3,31 @@ import { createUseStyles } from "react-jss";
 const useStyles = createUseStyles({
   input: {
     borderRadius: 15,
-    color: ({ theme }) => theme.palette.text
+    "& fieldset": {
+      borderColor: ({ theme }) => theme.palette.placeholder,
+      color: ({ theme }) => theme.palette.placeholder
+    }
+  },
+  textField: {
+    "& .MuiOutlinedInput-input": {
+      color: ({ theme }) => theme.palette.text
+    },
+    "& .MuiOutlinedInput-root": {
+      "&:hover fieldset": {
+        borderColor: ({ theme }) => theme.palette.placeholder
+      },
+      "&.Mui-focused fieldset": {
+        borderWidth: 2,
+        borderColor: ({ theme }) => theme.palette.primaryColor
+      }
+    }
   },
   label: {
     color: ({ theme }) => theme.palette.text,
-    fontWeight: 500,
-    fontSize: "1em"
+    fontSize: "1em",
+    "&.Mui-focused": {
+      color: ({ theme }) => theme.palette.primaryColor
+    }
   }
 });
 

@@ -88,7 +88,7 @@ export default function TabPersonalData({ tabActive, tabIndex }) {
               <TextInput
                 label="Data de nascimento"
                 InputProps={{ type: "date" }}
-                otherProps={{ InputLabelProps: { shrink: true } }}
+                InputLabelProps={{ shrink: true }}
               />
             </Grid>
           </Grid>

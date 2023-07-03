@@ -4,7 +4,7 @@ import enumTheme from "./utils/theme/enumTheme";
 const useGlobalStyles = createUseStyles({
   body: {
     backgroundColor: ({ theme }) => theme.palette.background,
-    width: "100vw",
+    width: "100%",
     minHeight: "100vh",
     position: "absolute",
     top: 0,
