@@ -4,7 +4,6 @@ import enumTheme from "./utils/theme/enumTheme";
 const useGlobalStyles = createUseStyles({
   body: {
     backgroundColor: ({ theme }) => theme.palette.background,
-    fontFamily: "'Fira Sans', sans-serif",
     width: "100vw",
     minHeight: "100vh",
     position: "absolute",
@@ -21,7 +20,6 @@ const useGlobalStyles = createUseStyles({
     width: "100%",
     color: ({ theme }) => theme.palette.white,
     backgroundColor: ({ theme }) => theme.palette.primaryColor,
-    fontFamily: "'Fira Sans', sans-serif",
     textTransform: "capitalize",
     marginTop: 8,
     "&:hover": {

@@ -95,6 +95,23 @@ const useStyles = createUseStyles({
   boldItem: {
     fontWeight: "bold",
     margin: "0 8px"
+  },
+  table: {
+    marginTop: 24
+  },
+  tableCell: {
+    fontSize: 16,
+    color: ({ theme }) => theme.palette.text,
+    padding: 8
+  },
+  link: {
+    fontWeight: 500,
+    color: ({ theme }) => theme.palette.primaryColor,
+    cursor: "pointer"
+  },
+  tableHead: {
+    borderTop: ({ theme }) => `2px solid ${theme.palette.primaryColor}`,
+    borderBottom: ({ theme }) => `2px solid ${theme.palette.primaryColor}`
   }
 });
 

@@ -1,5 +1,15 @@
 import { useContext } from "react";
-import { Button, Grid, InputAdornment } from "@mui/material";
+import {
+  Button,
+  Grid,
+  InputAdornment,
+  Table,
+  TableCell,
+  TableRow,
+  TableBody,
+  TableHead,
+  TablePagination
+} from "@mui/material";
 import classNames from "classnames";
 import { MdAccountCircle, MdBloodtype, MdCalendarToday, MdOutlineSearch } from "react-icons/md";
 
@@ -9,6 +19,45 @@ import Header from "../../components/Header";
 import useGlobalStyles from "../../styles";
 import TextInput from "../../components/TextInput";
 import SelectInput from "../../components/SelectInput";
+
+const rows = [
+  {
+    categoria: "Exame",
+    especialidade: "Ortopedia",
+    descricao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    data: "21/06/2023"
+  },
+  {
+    categoria: "Exame",
+    especialidade: "Ortopedia",
+    descricao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    data: "21/06/2023"
+  },
+  {
+    categoria: "Exame",
+    especialidade: "Ortopedia",
+    descricao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    data: "21/06/2023"
+  },
+  {
+    categoria: "Exame",
+    especialidade: "Ortopedia",
+    descricao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    data: "21/06/2023"
+  },
+  {
+    categoria: "Exame",
+    especialidade: "Ortopedia",
+    descricao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    data: "21/06/2023"
+  },
+  {
+    categoria: "Exame",
+    especialidade: "Ortopedia",
+    descricao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    data: "21/06/2023"
+  }
+];
 
 export default function UserHome() {
   const { theme } = useContext(ThemeContext);
@@ -170,6 +219,40 @@ export default function UserHome() {
                   />
                 </Grid>
               </Grid>
+              <Table
+                sx={{ width: "100%" }}
+                aria-label="Histórico de procedimentos"
+                className={classes.table}>
+                <TableHead className={classes.tableHead}>
+                  <TableRow>
+                    <TableCell className={classes.tableCell}>Categoria</TableCell>
+                    <TableCell className={classes.tableCell}>Especialidade</TableCell>
+                    <TableCell className={classes.tableCell}>Descrição</TableCell>
+                    <TableCell className={classes.tableCell}>Data</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {rows.map((row, index) => (
+                    <TableRow key={index}>
+                      <TableCell className={classes.tableCell}>{row.categoria}</TableCell>
+                      <TableCell className={classes.tableCell}>{row.especialidade}</TableCell>
+                      <TableCell className={classNames(classes.tableCell, classes.link)}>
+                        {row.descricao}
+                      </TableCell>
+                      <TableCell className={classes.tableCell}>{row.data}</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+              <TablePagination
+                rowsPerPageOptions={-1}
+                component="div"
+                count={10}
+                rowsPerPage={-1}
+                page={0}
+                onPageChange={() => {}}
+                onRowsPerPageChange={() => {}}
+              />
             </Grid>
           </Grid>
           <Grid item xs={12} lg={4} className={classes.column}>
