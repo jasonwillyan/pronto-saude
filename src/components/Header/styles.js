@@ -2,6 +2,9 @@ import { createUseStyles } from "react-jss";
 import enumTheme from "../../utils/theme/enumTheme";
 
 const useStyles = createUseStyles({
+  linkHome: {
+    textDecoration: "none"
+  },
   header: {
     width: "100%",
     padding: "0.5em 2em",
