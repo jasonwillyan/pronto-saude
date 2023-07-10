@@ -1,0 +1,31 @@
+const especialidades = [
+  { value: 1, label: "Alergia e Imunologia" },
+  { value: 2, label: "Anestesiologia" },
+  { value: 3, label: "Angiologia" },
+  { value: 4, label: "Cardiologia" },
+  { value: 5, label: "Clínica Médica" },
+  { value: 6, label: "Coloproctologia" },
+  { value: 7, label: "Dermatologia" },
+  { value: 8, label: "Endocrinologia" },
+  { value: 9, label: "Gastroenterologia" },
+  { value: 10, label: "Geriatria" },
+  { value: 11, label: "Ginecologia" },
+  { value: 12, label: "Hematologia" },
+  { value: 13, label: "Infectologia" },
+  { value: 14, label: "Mastologia" },
+  { value: 15, label: "Nefrologia" },
+  { value: 16, label: "Neurocirurgia" },
+  { value: 17, label: "Neurologia" },
+  { value: 18, label: "Nutrologia" },
+  { value: 19, label: "Obstetrícia" },
+  { value: 20, label: "Oftalmologia" },
+  { value: 21, label: "Ortopedia e Traumatologia" },
+  { value: 22, label: "Otorrinolaringologia" },
+  { value: 23, label: "Patologia" },
+  { value: 24, label: "Pediatria" },
+  { value: 25, label: "Pneumologia" },
+  { value: 26, label: "Reumatologia" },
+  { value: 27, label: "Urologia" }
+];
+
+export default especialidades;

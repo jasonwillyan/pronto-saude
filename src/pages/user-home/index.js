@@ -274,7 +274,7 @@ export default function UserHome() {
               <Link to="/profile" className={globalClasses.primaryButton}>
                 Editar perfil
               </Link>
-              <Link to="" className={globalClasses.primaryButton}>
+              <Link to="/new-procedure" className={globalClasses.primaryButton}>
                 Cadastrar procedimento
               </Link>
             </Grid>
