@@ -41,6 +41,17 @@ const useStyles = createUseStyles({
     gridTemplateColumns: "1fr 3fr 32px",
     columnGap: 16,
     marginBottom: 16
+  },
+  buttonAddFile: {
+    borderRadius: 15,
+    border: ({ theme }) => `2px solid ${theme.palette.primaryColor}`,
+    padding: "3px 16px",
+    color: ({ theme }) => theme.palette.primaryColor,
+    backgroundColor: ({ theme }) => theme.palette.white,
+    textTransform: "initial",
+    textAlign: "center",
+    fontWeight: 500,
+    fontSize: 16
   }
 });
 

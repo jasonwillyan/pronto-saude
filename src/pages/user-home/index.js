@@ -21,11 +21,21 @@ import TextInput from "../../components/TextInput";
 import SelectInput from "../../components/SelectInput";
 import api from "../../services/api";
 import { useAuth } from "../../contexts/auth";
+import Modal from "../../components/Modal";
 
 export default function UserHome() {
   const { theme } = useContext(ThemeContext);
   const classes = useStyles({ theme });
   const globalClasses = useGlobalStyles({ theme });
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
   const { user } = useAuth();
 
@@ -212,8 +222,10 @@ export default function UserHome() {
                   {procedures.map((row, index) => (
                     <TableRow key={index}>
                       <TableCell className={classes.tableCell}>{row.category}</TableCell>
-                      <TableCell className={classes.tableCell}>{row.type}</TableCell>
-                      <TableCell className={classNames(classes.tableCell, classes.link)}>
+                      <TableCell className={classes.tableCell}>{row.specialty}</TableCell>
+                      <TableCell
+                        className={classNames(classes.tableCell, classes.link)}
+                        onClick={openModal}>
                         {row.description}
                       </TableCell>
                       <TableCell className={classes.tableCell}>{row.date}</TableCell>
@@ -222,9 +234,9 @@ export default function UserHome() {
                 </TableBody>
               </Table>
               <TablePagination
-                rowsPerPageOptions={-1}
+                rowsPerPageOptions={[]}
                 component="div"
-                count={10}
+                count={6}
                 rowsPerPage={-1}
                 page={0}
                 onPageChange={() => {}}
@@ -258,6 +270,7 @@ export default function UserHome() {
           </Grid>
         </Grid>
       </div>
+      <Modal open={isModalOpen} closeModal={closeModal} />
     </>
   );
 }

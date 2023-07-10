@@ -15,7 +15,7 @@ const useGlobalStyles = createUseStyles({
   },
   primaryButton: {
     borderRadius: 15,
-    padding: "10px 16px",
+    padding: "14px 16px",
     maxWidth: 250,
     width: "100%",
     color: ({ theme }) => theme.palette.white,
@@ -28,6 +28,25 @@ const useGlobalStyles = createUseStyles({
     marginTop: 16,
     "&:hover": {
       backgroundColor: ({ theme }) => theme.palette.primaryColor,
+      filter: ({ theme }) => (theme.name === enumTheme.light ? "brightness(0.8)" : ""),
+      transition: "all 0.3s ease"
+    }
+  },
+  deleteButton: {
+    borderRadius: 15,
+    padding: "10px 16px",
+    maxWidth: 250,
+    width: "100%",
+    color: ({ theme }) => theme.palette.white,
+    backgroundColor: ({ theme }) => theme.palette.red,
+    textTransform: "initial",
+    textAlign: "center",
+    textDecoration: "none",
+    fontWeight: 500,
+    fontSize: 16,
+    marginTop: 16,
+    "&:hover": {
+      backgroundColor: ({ theme }) => theme.palette.red,
       filter: ({ theme }) => (theme.name === enumTheme.light ? "brightness(0.8)" : ""),
       transition: "all 0.3s ease"
     }

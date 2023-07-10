@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import classNames from "classnames";
 import { Grid, Button, IconButton } from "@mui/material";
-import { MdAdd, MdClose } from "react-icons/md";
+import { MdAdd, MdClose, MdUploadFile } from "react-icons/md";
 import Header from "../../components/Header";
 import useStyles from "./styles";
 import { ThemeContext } from "../../contexts/ThemeContext";
@@ -87,6 +87,14 @@ export default function NewProcedure() {
                 </Grid>
               </>
             )}
+            <Grid item xs={12} lg={2}>
+              <Button
+                sx={{ mt: 0 }}
+                startIcon={<MdUploadFile size={20} color={theme.palette.primaryColor} />}
+                className={classes.buttonAddFile}>
+                Anexar arquivo
+              </Button>
+            </Grid>
           </Grid>
           <Grid item xs={12} className={classes.row}>
             <TextInput label="Resultado" placeholder="Digite o resultado do procedimento" />
@@ -95,7 +103,7 @@ export default function NewProcedure() {
         <h3 className={classes.subtitle}>Tratamento</h3>
         <Grid container direction="column">
           <Grid container className={classes.row} spacing={2}>
-            <Grid item xs={12} lg={3}>
+            <Grid item xs={12} lg={2}>
               <SelectInput
                 label="Urgência"
                 items={[
@@ -114,8 +122,16 @@ export default function NewProcedure() {
             <Grid item xs={12} lg={3}>
               <TextInput label="Status" placeholder="Digite o status do tratamento" />
             </Grid>
-            <Grid item xs={12} lg={3}>
+            <Grid item xs={12} lg={2}>
               <TextInput label="Validade da receita" placeholder="Digite a validade da receita" />
+            </Grid>
+            <Grid item xs={12} lg={2}>
+              <Button
+                sx={{ mt: 0 }}
+                startIcon={<MdUploadFile size={20} color={theme.palette.primaryColor} />}
+                className={classes.buttonAddFile}>
+                Anexar arquivo
+              </Button>
             </Grid>
           </Grid>
           <h4 className={classes.titleH4}>Itens da receita</h4>
