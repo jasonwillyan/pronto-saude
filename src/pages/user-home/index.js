@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import {
   Grid,
   InputAdornment,
@@ -19,6 +19,7 @@ import Header from "../../components/Header";
 import useGlobalStyles from "../../styles";
 import TextInput from "../../components/TextInput";
 import SelectInput from "../../components/SelectInput";
+import Modal from "../../components/Modal";
 
 const rows = [
   {
@@ -63,6 +64,15 @@ export default function UserHome() {
   const { theme } = useContext(ThemeContext);
   const classes = useStyles({ theme });
   const globalClasses = useGlobalStyles({ theme });
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
   return (
     <>
@@ -236,7 +246,9 @@ export default function UserHome() {
                     <TableRow key={index}>
                       <TableCell className={classes.tableCell}>{row.categoria}</TableCell>
                       <TableCell className={classes.tableCell}>{row.especialidade}</TableCell>
-                      <TableCell className={classNames(classes.tableCell, classes.link)}>
+                      <TableCell
+                        className={classNames(classes.tableCell, classes.link)}
+                        onClick={openModal}>
                         {row.descricao}
                       </TableCell>
                       <TableCell className={classes.tableCell}>{row.data}</TableCell>
@@ -245,9 +257,9 @@ export default function UserHome() {
                 </TableBody>
               </Table>
               <TablePagination
-                rowsPerPageOptions={-1}
+                rowsPerPageOptions={[]}
                 component="div"
-                count={10}
+                count={6}
                 rowsPerPage={-1}
                 page={0}
                 onPageChange={() => {}}
@@ -258,7 +270,7 @@ export default function UserHome() {
           <Grid item xs={12} lg={4} className={classes.column}>
             <Grid container direction="column" alignItems="center" className={classes.card}>
               <MdAccountCircle color={theme.palette.text} size={80} />
-              <h2 className={classNames(classes.title, classes.titleCenter)}>Nome do usuário</h2>
+              <h2 className={classNames(classes.title, classes.titleCenter)}>Fabiana Pereira</h2>
               <div className={classes.infoUser}>
                 <div className={classes.itemUser}>
                   <MdCalendarToday size={24} />
@@ -281,6 +293,7 @@ export default function UserHome() {
           </Grid>
         </Grid>
       </div>
+      <Modal open={isModalOpen} closeModal={closeModal} />
     </>
   );
 }
