@@ -17,12 +17,20 @@ export default function Login() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
-  const { signIn } = useAuth();
+  const { signIn, signUp } = useAuth();
 
   const navigate = useNavigate();
 
   async function handleSignIn() {
     const logged = await signIn({ email, password });
+
+    if (logged) {
+      navigate("/home");
+    }
+  }
+
+  async function handleSignUp() {
+    const logged = await signUp({ name, email, password });
 
     if (logged) {
       navigate("/home");
@@ -123,7 +131,9 @@ export default function Login() {
                 onChange={(event) => setPassword(event.target.value)}
               />
             </div>
-            <button className="submit-btn">Cadastrar</button>
+            <button className="submit-btn" onClick={handleSignUp}>
+              Cadastrar
+            </button>
           </div>
         </div>
       </div>

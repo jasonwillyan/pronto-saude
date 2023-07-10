@@ -236,7 +236,7 @@ export default function UserHome() {
               <TablePagination
                 rowsPerPageOptions={[]}
                 component="div"
-                count={6}
+                count={procedures.length}
                 rowsPerPage={-1}
                 page={0}
                 onPageChange={() => {}}

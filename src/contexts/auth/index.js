@@ -39,6 +39,29 @@ const AuthProvider = ({ children }) => {
     }
   }, []);
 
+  const signUp = useCallback(async ({ name, email, password }) => {
+    try {
+      const response = await api.post("register", {
+        name,
+        email,
+        password
+      });
+
+      const { token, ...user } = response.data;
+
+      localStorage.setItem("token", token);
+      localStorage.setItem("user", JSON.stringify(user));
+
+      api.defaults.headers.authorization = `Bearer ${token}`;
+
+      setData({ token, user });
+
+      return true;
+    } catch (error) {
+      return false;
+    }
+  }, []);
+
   const signOut = useCallback(() => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
@@ -47,7 +70,7 @@ const AuthProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user: data.user, signIn, signOut }}>
+    <AuthContext.Provider value={{ user: data.user, signIn, signUp, signOut }}>
       {children}
     </AuthContext.Provider>
   );
