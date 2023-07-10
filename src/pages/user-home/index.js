@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 import {
   Grid,
   InputAdornment,
@@ -19,50 +19,27 @@ import Header from "../../components/Header";
 import useGlobalStyles from "../../styles";
 import TextInput from "../../components/TextInput";
 import SelectInput from "../../components/SelectInput";
-
-const rows = [
-  {
-    categoria: "Exame",
-    especialidade: "Ortopedia",
-    descricao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    data: "21/06/2023"
-  },
-  {
-    categoria: "Exame",
-    especialidade: "Ortopedia",
-    descricao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    data: "21/06/2023"
-  },
-  {
-    categoria: "Exame",
-    especialidade: "Ortopedia",
-    descricao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    data: "21/06/2023"
-  },
-  {
-    categoria: "Exame",
-    especialidade: "Ortopedia",
-    descricao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    data: "21/06/2023"
-  },
-  {
-    categoria: "Exame",
-    especialidade: "Ortopedia",
-    descricao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    data: "21/06/2023"
-  },
-  {
-    categoria: "Exame",
-    especialidade: "Ortopedia",
-    descricao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    data: "21/06/2023"
-  }
-];
+import api from "../../services/api";
+import { useAuth } from "../../contexts/auth";
 
 export default function UserHome() {
   const { theme } = useContext(ThemeContext);
   const classes = useStyles({ theme });
   const globalClasses = useGlobalStyles({ theme });
+
+  const { user } = useAuth();
+
+  const [procedures, setProcedures] = useState([]);
+
+  const getAllProcedures = useCallback(async () => {
+    const response = await api.get("procedures");
+
+    setProcedures(response.data);
+  }, []);
+
+  useEffect(() => {
+    getAllProcedures();
+  }, []);
 
   return (
     <>
@@ -232,14 +209,14 @@ export default function UserHome() {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {rows.map((row, index) => (
+                  {procedures.map((row, index) => (
                     <TableRow key={index}>
-                      <TableCell className={classes.tableCell}>{row.categoria}</TableCell>
-                      <TableCell className={classes.tableCell}>{row.especialidade}</TableCell>
+                      <TableCell className={classes.tableCell}>{row.category}</TableCell>
+                      <TableCell className={classes.tableCell}>{row.type}</TableCell>
                       <TableCell className={classNames(classes.tableCell, classes.link)}>
-                        {row.descricao}
+                        {row.description}
                       </TableCell>
-                      <TableCell className={classes.tableCell}>{row.data}</TableCell>
+                      <TableCell className={classes.tableCell}>{row.date}</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
@@ -258,7 +235,7 @@ export default function UserHome() {
           <Grid item xs={12} lg={4} className={classes.column}>
             <Grid container direction="column" alignItems="center" className={classes.card}>
               <MdAccountCircle color={theme.palette.text} size={80} />
-              <h2 className={classNames(classes.title, classes.titleCenter)}>Nome do usuário</h2>
+              <h2 className={classNames(classes.title, classes.titleCenter)}>{user.name}</h2>
               <div className={classes.infoUser}>
                 <div className={classes.itemUser}>
                   <MdCalendarToday size={24} />

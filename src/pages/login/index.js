@@ -1,15 +1,39 @@
-import { useContext, useRef } from "react";
+import { useContext, useRef, useState } from "react";
 import classNames from "classnames";
 
+import { useNavigate } from "react-router-dom";
 import logo from "../../assets/ps.png";
 import useStyles from "./styles";
 import { ThemeContext } from "../../contexts/ThemeContext";
+import { useAuth } from "../../contexts/auth";
 
 export default function Login() {
   const login = useRef(null);
   const signup = useRef(null);
   const { theme } = useContext(ThemeContext);
   const classes = useStyles({ theme });
+
+  const [name, setName] = useState();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+
+  const { signIn } = useAuth();
+
+  const navigate = useNavigate();
+
+  async function handleSignIn() {
+    const logged = await signIn({ email, password });
+
+    if (logged) {
+      navigate("/home");
+    }
+  }
+
+  function resetForm() {
+    setEmail(null);
+    setName(null);
+    setPassword(null);
+  }
 
   const slideLogin = () => {
     Array.from(login.current.classList).find((element) => {
@@ -19,6 +43,8 @@ export default function Login() {
       }
       return false;
     });
+
+    resetForm();
   };
 
   const slideSignup = () => {
@@ -29,6 +55,8 @@ export default function Login() {
       }
       return false;
     });
+
+    resetForm();
   };
 
   return (
@@ -47,10 +75,24 @@ export default function Login() {
             Entrar
           </h2>
           <div className="form-holder">
-            <input type="email" className="input" placeholder="E-mail" />
-            <input type="password" className="input" placeholder="Senha" />
+            <input
+              value={email}
+              type="email"
+              className="input"
+              placeholder="E-mail"
+              onChange={(event) => setEmail(event.target.value)}
+            />
+            <input
+              value={password}
+              type="password"
+              className="input"
+              placeholder="Senha"
+              onChange={(event) => setPassword(event.target.value)}
+            />
           </div>
-          <button className="submit-btn">Entrar</button>
+          <button className="submit-btn" onClick={handleSignIn}>
+            Entrar
+          </button>
         </div>
 
         <div className={classNames(classes.signUp, "slide-up")} ref={signup}>
@@ -59,9 +101,27 @@ export default function Login() {
               Criar conta
             </h2>
             <div className="form-holder">
-              <input type="text" className="input" placeholder="Nome" />
-              <input type="email" className="input" placeholder="E-mail" />
-              <input type="password" className="input" placeholder="Senha" />
+              <input
+                value={name}
+                type="text"
+                className="input"
+                placeholder="Nome"
+                onChange={(event) => setName(event.target.value)}
+              />
+              <input
+                value={email}
+                type="email"
+                className="input"
+                placeholder="E-mail"
+                onChange={(event) => setEmail(event.target.value)}
+              />
+              <input
+                value={password}
+                type="password"
+                className="input"
+                placeholder="Senha"
+                onChange={(event) => setPassword(event.target.value)}
+              />
             </div>
             <button className="submit-btn">Cadastrar</button>
           </div>

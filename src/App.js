@@ -4,6 +4,7 @@ import Routes from "./routes";
 import "./global.css";
 import useGlobalStyles from "./styles";
 import { ThemeContext } from "./contexts/ThemeContext";
+import { AuthProvider } from "./contexts/auth";
 
 function App() {
   const { theme } = useContext(ThemeContext);
@@ -11,7 +12,9 @@ function App() {
 
   return (
     <div className={classes.body}>
-      <Routes />
+      <AuthProvider>
+        <Routes />
+      </AuthProvider>
     </div>
   );
 }
